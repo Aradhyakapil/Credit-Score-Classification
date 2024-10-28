@@ -70,31 +70,7 @@ async def predict(request: Request,
     Credit_Grade = score[credit_Score]
     return templates.TemplateResponse("score.html", {"request": request, "cs": Credit_Grade})
 
-@app.get('/resume')
-async def resume(request: Request):
-    """
-    Render the resume page.
 
-    Args:
-        request (Request): FastAPI Request object.
-
-    Returns:
-        TemplateResponse: HTML template response for the resume page.
-    """
-    return templates.TemplateResponse("resume.html", {"request": request})
-
-@app.get('/hire')
-async def hire_me(request: Request):
-    """
-    Render the hire me page.
-
-    Args:
-        request (Request): FastAPI Request object.
-
-    Returns:
-        TemplateResponse: HTML template response for the hire me page.
-    """
-    return templates.TemplateResponse("hire.html", {"request": request})
 
 @app.post('/thankyou')
 async def sendMail(request: Request, Name:str=Form(...), Email:str=Form(...), Message:str = Form(...)):
